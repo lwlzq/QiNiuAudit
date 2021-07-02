@@ -1,5 +1,5 @@
 {
-    "name": "liuweiliang/avatar",
+    "name": "liuweiliang4917/avatar",
     "autoload": {
         "psr-4": {
             "Liuweiliang\\Liuweiliang\\": "src/"
