@@ -1,0 +1,15 @@
+{
+    "name": "liuweiliang/liuweiliang",
+    "autoload": {
+        "psr-4": {
+            "Liuweiliang\\Liuweiliang\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "liuweiliang",
+            "email": "791771832@qq.com"
+        }
+    ],
+    "require": {}
+}
