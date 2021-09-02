@@ -9,7 +9,7 @@
  * @Update Date    2021/7/2 11:49 By lwl
  * @version v1.0
  */
-namespace Liuweiliang\QiNiuAudit;
+namespace Liuweiliang\Qiniuaudit;
 use Illuminate\Support\ServiceProvider;
 class QiNiuAuditProvider extends ServiceProvider
 {
