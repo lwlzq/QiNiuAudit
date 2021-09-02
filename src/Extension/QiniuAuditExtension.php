@@ -21,7 +21,7 @@
  * @version v1.0
  */
 
-namespace Liuweiliang\Qiniuaudit\Extension;
+namespace Liuweiliang\Liuweiliang\Extension;
 
 use Qiniu\Auth;
 use Qiniu\Config;

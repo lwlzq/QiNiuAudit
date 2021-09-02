@@ -9,7 +9,7 @@
  * @Update Date    2021/7/2 11:50 By lwl
  * @version v1.0
  */
-namespace Liuweiliang\Qiniuaudit\Facades;
+namespace Liuweiliang\Liuweiliang\Facades;
 use Illuminate\Support\Facades\Facade;
 class QiNiuAudit extends Facade
 {

@@ -1,5 +1,5 @@
 {
-    "name": "liuweiliang/qiniuaudit",
+    "name": "liuweiliang/audit",
     "autoload": {
         "psr-4": {
             "Liuweiliang\\Liuweiliang\\": "src/"

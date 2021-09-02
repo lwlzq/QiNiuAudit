@@ -10,7 +10,7 @@
  * @version v1.0
  */
 
-namespace Liuweiliang\Qiniuaudit;
+namespace Liuweiliang\Liuweiliang;
 
 
 interface AuditInterface

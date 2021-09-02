@@ -10,12 +10,12 @@
  * @version v1.0
  */
 
-namespace Liuweiliang\Qiniuaudit\Services;
+namespace Liuweiliang\Liuweiliang\Services;
 
 use BusinessSchool\Services\Qiniu\Services\AuditImageService;
 use Illuminate\Config\Repository;
 use Liuweiliang\Qiniuaudit\AuditInterface;
-use Liuweiliang\Qiniuaudit\Extension\QiniuAuditExtension;
+use Liuweiliang\Liuweiliang\Extension\QiniuAuditExtension;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
 use Qiniu\Auth;
