@@ -1,8 +1,8 @@
 {
-    "name": "liuweiliang/avatar",
+    "name": "liuweiliang/QiNiuAudit",
     "autoload": {
         "psr-4": {
-            "Liuweiliang\\Liuweiliang\\": "src/"
+            "Liuweiliang\\QiNiuAudit\\": "src/"
         }
     },
     "authors": [

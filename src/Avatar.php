@@ -1,7 +1,7 @@
 <?php
 /**
  * Copyright (C), 2021-2021, Shall Buy Life info. Co., Ltd.
- * FileName: Avatar.php
+ * FileName: QiNiuAudit.php
  * Description: 说明
  *
  * @author lwl
@@ -17,7 +17,7 @@
  * Time: 14:06
  */
 
-namespace Liuweiliang\Liuweiliang;
+namespace Liuweiliang\QiNiuAudit;
 
 use Illuminate\Config\Repository;
 
@@ -30,7 +30,7 @@ class Avatar
      */
     public function __construct(Repository $config)
     {
-        $this->config = $config->get('avatar');
+        $this->config = $config->get('qiniu');
     }
 
     /**

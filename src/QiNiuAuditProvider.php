@@ -9,9 +9,9 @@
  * @Update Date    2021/7/2 11:49 By lwl
  * @version v1.0
  */
-namespace Liuweiliang\Liuweiliang;
+namespace Liuweiliang\QiNiuAudit;
 use Illuminate\Support\ServiceProvider;
-class AvatarProvider extends ServiceProvider
+class QiNiuAuditProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -22,7 +22,7 @@ class AvatarProvider extends ServiceProvider
     {
         // 发布配置文件
         $this->publishes([
-            __DIR__.'/config/avatar.php' => config_path('avatar.php'),
+            __DIR__ . '/config/qiniu.php' => config_path('qiniu.php'),
         ]);
     }
     /**
@@ -32,7 +32,7 @@ class AvatarProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('avatar', function ($app) {
+        $this->app->singleton('qiNiuAudit', function ($app) {
             return new Avatar($app['config']);
         });
     }

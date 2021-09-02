@@ -1,7 +1,7 @@
 <?php
 /**
  * Copyright (C), 2021-2021, Shall Buy Life info. Co., Ltd.
- * FileName: Avatar.php
+ * FileName: QiNiuAudit.php
  * Description: 说明
  *
  * @author lwl
@@ -9,12 +9,12 @@
  * @Update Date    2021/7/2 11:50 By lwl
  * @version v1.0
  */
-namespace Liuweiliang\Liuweiliang\Facades;
+namespace Liuweiliang\QiNiuAudit\Facades;
 use Illuminate\Support\Facades\Facade;
-class Avatar extends Facade
+class QiNiuAudit extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'avatar';
+        return 'QiNiuAudit';
     }
 }
