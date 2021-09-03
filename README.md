@@ -34,7 +34,7 @@ QINIU_PASSWORD = 你的密码
 ### 音频审核
 ```angular2html
 \Liuweiliang\Liuweiliang\Services\AuditAudioService::getInstance()->setMethod('POST')->setQuery('音频地址')->send();//推送数据到 七牛云
-返回 音频id($audio_id) 用于查询 视频结果
+返回 音频id($audio_id) 用于查询 音频结果
 
 \Liuweiliang\Liuweiliang\Services\AuditAudioService::getInstance()->auditResult($audio_id)//查询音频审核结果
 
