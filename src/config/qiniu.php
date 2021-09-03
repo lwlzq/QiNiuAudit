@@ -11,8 +11,8 @@
  */
 return [
 
-    'account' => env('QINIU_ACCOUNNT', 'gpiVnBM8TFvVDHt1uOslCxgjteSDpCbCqSPlsoJs'),
-    'password' => env('QINIU_PASSWORD', 'YCKSKVzVLVr_eu-iaCDnRGJXswt1UE256QxGOa_n'),
+    'account' => env('QINIU_ACCOUNNT', ''),
+    'password' => env('QINIU_PASSWORD', ''),
     'version' => 'v3',
 
     'scenes' => [
