@@ -12,6 +12,9 @@
 ```angular2html
 
 php artisan vendor:publish
+
+选择发布服务序号:
+    Liuweiliang\Liuweiliang\QiNiuAuditProvider 的 序号
 ```
 ### 更新 env
 ```angular2html
