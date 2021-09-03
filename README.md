@@ -43,9 +43,9 @@ QINIU_PASSWORD = 你的密码
 ### 视频审核
 ```angular2html
 \Liuweiliang\Liuweiliang\Services\AuditVideoService::getInstance()->setMethod('POST')->setQuery('视频地址')->send();//推送数据到 七牛云
-返回 视频id(video_id) 用于查询 视频结果
+返回 视频id($video_id) 用于查询 视频结果
 
-\Liuweiliang\Liuweiliang\Services\AuditAudioService::getInstance()->videoResult($audio_id)//查询视频审核结果
+\Liuweiliang\Liuweiliang\Services\AuditAudioService::getInstance()->videoResult($video_id)//查询视频审核结果
 
 
 ```
