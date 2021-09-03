@@ -11,5 +11,7 @@
             "email": "791771832@qq.com"
         }
     ],
-    "require": {}
+    "require": {
+        "liuweiliang/qiniuaudit": "dev-master"
+    }
 }

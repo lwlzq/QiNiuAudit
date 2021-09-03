@@ -17,6 +17,7 @@ class ComposerStaticInit6822d737f7324f515d5d54331a246d08
         'Liuweiliang\\Liuweiliang\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+            1 => __DIR__ . '/..' . '/liuweiliang/qiniuaudit/src',
         ),
     );
 

@@ -10,14 +10,16 @@
  * @version v1.0
  */
 
-namespace BusinessSchool\Services\Qiniu\Services;
+namespace Liuweiliang\Liuweiliang\Services;
 
-use BusinessSchool\Services\Qiniu\AuditInterface;
+use Qiniu\Storage\ArgusManager;
+use Illuminate\Config\Repository;
+use Liuweiliang\Liuweiliang\AuditInterface;
+use Liuweiliang\Liuweiliang\Extension\QiniuAuditExtension;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
 use Qiniu\Auth;
 use Qiniu\Config;
-use Qiniu\Storage\ArgusManager;
 
 class AuditImageService implements AuditInterface
 {
@@ -85,9 +87,8 @@ class AuditImageService implements AuditInterface
      */
     private function __construct()
     {
-        $this->appId = config('services.qiniu.ak');
-        $this->appSecret = config('services.qiniu.sk');
-//        $this->client = new Client();
+        $this->appId = config('qiniu.account');
+        $this->appSecret = config('qiniu.password');
     }
 
     /**
@@ -127,7 +128,7 @@ class AuditImageService implements AuditInterface
                 'uri' => $query
             ],
             'params' => [
-                'scenes' => config('services.qiniu.scenes.image'),
+                'scenes' => config('qiniu.scenes.image'),
             ]
         ];
         return $this;
@@ -238,9 +239,9 @@ class AuditImageService implements AuditInterface
      * Author：lwl
      * @return array
      */
-    public function send()
+    public function send():array
     {
-        $argusManager = new ArgusManager((new Auth($this->appId, $this->appSecret)), (new Config()));
+        $argusManager = new QiniuAuditExtension((new Auth($this->appId, $this->appSecret)), (new Config()));
         $body = json_encode($this->query);
 
         /** @var $err \Qiniu\Http\Error */

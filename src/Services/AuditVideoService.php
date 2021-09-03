@@ -10,14 +10,17 @@
  * @version v1.0
  */
 
-namespace BusinessSchool\Services\Qiniu\Services;
+namespace Liuweiliang\Liuweiliang\Services;
 
-use BusinessSchool\Services\Qiniu\AuditInterface;
+
+use Qiniu\Storage\ArgusManager;
+use Illuminate\Config\Repository;
+use Liuweiliang\Liuweiliang\AuditInterface;
+use Liuweiliang\Liuweiliang\Extension\QiniuAuditExtension;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
 use Qiniu\Auth;
 use Qiniu\Config;
-use Qiniu\Storage\ArgusManager;
 
 class AuditVideoService implements AuditInterface
 {
@@ -79,12 +82,12 @@ class AuditVideoService implements AuditInterface
     private $method = 'POST';
 
     /**
-     * AuditImageService constructor.
+     * AuditVideoService constructor.
      */
     private function __construct()
     {
-        $this->appId = config('services.qiniu.ak');
-        $this->appSecret = config('services.qiniu.sk');
+        $this->appId = config('qiniu.account');
+        $this->appSecret = config('qiniu.password');
     }
 
     /**
@@ -125,7 +128,7 @@ class AuditVideoService implements AuditInterface
                 'uri' => $query,
             ],
             'params' => [
-                'scenes' => config('services.qiniu.scenes.video'),
+                'scenes' => config('qiniu.scenes.video'),
             ],
             'cut_param' => ['interval_msecs' => 5000]
         ];
@@ -237,9 +240,9 @@ class AuditVideoService implements AuditInterface
      * Author：lwl
      * @return array
      */
-    public function send()
+    public function send():array
     {
-        $argusManager = new ArgusManager((new Auth($this->appId, $this->appSecret)), (new Config()));
+        $argusManager = new QiniuAuditExtension((new Auth($this->appId, $this->appSecret)), (new Config()));
         $body = json_encode($this->query);
         list($ret, $err) = $argusManager->censorVideo($body);
         if ($err !== null) {
@@ -259,10 +262,7 @@ class AuditVideoService implements AuditInterface
      */
     public function videoResult($jobId)
     {
-        $argusManager = new ArgusManager((new Auth($this->appId, $this->appSecret)), (new Config()));
-//        $result = $argusManager->censorStatus($jobId);
-//        return $result;
-
+        $argusManager = new QiniuAuditExtension((new Auth($this->appId, $this->appSecret)), (new Config()));
         list($ret, $err) = $argusManager->censorStatus($jobId);
         if ($err !== null) {
             Log::error('七牛云验证错误' . self::ROUTE, ['request_id' => time(), 'message' => $err->message(), 'code' => $err->code()]);

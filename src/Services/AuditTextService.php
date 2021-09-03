@@ -12,9 +12,8 @@
 
 namespace Liuweiliang\Liuweiliang\Services;
 
-use BusinessSchool\Services\Qiniu\Services\AuditImageService;
 use Illuminate\Config\Repository;
-use Liuweiliang\Qiniuaudit\AuditInterface;
+use Liuweiliang\Liuweiliang\AuditInterface;
 use Liuweiliang\Liuweiliang\Extension\QiniuAuditExtension;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
@@ -82,12 +81,12 @@ class AuditTextService implements AuditInterface
 
 
     /**
-     * AuditImageService constructor.
+     * AuditTextService constructor.
      */
     private function __construct()
     {
-        $this->appId = config('account');
-        $this->appSecret = config('password');
+        $this->appId = config('qiniu.account');
+        $this->appSecret = config('qiniu.password');
     }
 
     /**
@@ -127,7 +126,7 @@ class AuditTextService implements AuditInterface
                 'text' => $query
             ],
             'params' => [
-                'scenes' => config('scenes.text'),
+                'scenes' => config('qiniu.scenes.text'),
             ]
         ];
         return $this;
@@ -238,7 +237,7 @@ class AuditTextService implements AuditInterface
      * Author：lwl
      * @return array
      */
-    public function send()
+    public function send():array
     {
         $argusManager = new QiniuAuditExtension((new Auth($this->appId, $this->appSecret)), (new Config()));
         $body = json_encode($this->query);

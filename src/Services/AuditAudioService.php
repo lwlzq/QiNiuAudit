@@ -10,10 +10,12 @@
  * @version v1.0
  */
 
-namespace BusinessSchool\Services\Qiniu\Services;
+namespace Liuweiliang\Liuweiliang\Services;
 
-use BusinessSchool\Services\Qiniu\AuditInterface;
-use BusinessSchool\Services\Qiniu\Extension\QiniuAuditExtension;
+use Qiniu\Storage\ArgusManager;
+use Illuminate\Config\Repository;
+use Liuweiliang\Liuweiliang\AuditInterface;
+use Liuweiliang\Liuweiliang\Extension\QiniuAuditExtension;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
 use Qiniu\Auth;
@@ -84,9 +86,8 @@ class AuditAudioService implements AuditInterface
      */
     private function __construct()
     {
-        $this->appId = config('services.qiniu.ak');
-        $this->appSecret = config('services.qiniu.sk');
-        $this->client = new Client();
+        $this->appId = config('qiniu.account');
+        $this->appSecret = config('qiniu.password');
     }
 
     /**
@@ -121,7 +122,6 @@ class AuditAudioService implements AuditInterface
      */
     public function setQuery($query)
     {
-//        dd(config('services.qiniu.scenes.audio'));
         $this->query = [
             'data' => [
                 'uri' => $query,
@@ -129,7 +129,7 @@ class AuditAudioService implements AuditInterface
             ],
 
             'params' => [
-                'scenes' => config('services.qiniu.scenes.audio'),
+                'scenes' => config('qiniu.scenes.audio'),
             ]
         ];
         return $this;

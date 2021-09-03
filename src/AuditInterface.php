@@ -19,7 +19,7 @@ interface AuditInterface
 
     public function setRoute($route);
 
-    public function send();
+    public function send():array;
 
     public function getQuery();
 
